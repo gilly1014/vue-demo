@@ -1,11 +1,7 @@
 <template>
     <div>
         <!-- 轮播图区域 -->
-        <mt-swipe :auto="4000">
-            <mt-swipe-item v-for="item in lunbotuList" :key="item.img">
-                <img :src="item.img" alt="">
-            </mt-swipe-item>
-        </mt-swipe>
+       <swiper :lunbotuList="lunbotuList" :isfull="true"></swiper>
 
         <!-- 九宫格到六宫格的改造 -->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -51,6 +47,7 @@
 </template>
 
 <script>
+import swiper from "../subcomponents/swiper.vue";
 export default {
   data() {
     return {
@@ -70,20 +67,16 @@ export default {
         }
       });
     }
+  },
+   components: {
+    // 用来注册子组件的节点
+     swiper
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.mint-swipe {
-  height: 200px;
-  .mint-swipe-items-wrap {
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
+
 .mui-grid-view.mui-grid-9 {
     background-color: white;
     border: none;

@@ -55,7 +55,7 @@
                     return Toast("评论内容不能为空！");
                }
                
-               this.$http.post("api/postcomment/" +this.$route.params.id, {content: this.msg.trim()}).then( result=>{
+               this.$http.post("api/postcomment/" +this.id, {content: this.msg.trim()}).then( result=>{
                    
                     if(result.body.status===0) {
                         var cmt= {
